@@ -20,8 +20,8 @@ pub fn _initialize_exchange(
     escrow.a_to_b_mint = ctx.accounts.a_to_b_mint.key();
     escrow.b_to_a_mint = ctx.accounts.b_to_a_mint.key();
 
-    escrow.bump = *ctx.bumps.get("escrow").unwrap();
-    escrow.escrow_token_bump = *ctx.bumps.get("escrow_token_account").unwrap();
+    escrow.bump = ctx.bumps.escrow;
+    escrow.escrow_token_bump = ctx.bumps.escrow_token_account;
 
     transfer(
         CpiContext::new(
